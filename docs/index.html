@@ -11,11 +11,11 @@
   <meta property="og:title" content="Touch-R1: Reinforcing Touch Reasoning in MLLMs">
   <meta property="og:description" content="A project page for Touch-R1, TouchReason-1M, and tactile-grounded GRPO.">
   <meta property="og:url" content="https://laiyingxin2.github.io/Projects/">
-  <meta property="og:image" content="https://laiyingxin2.github.io/Projects/assets/figures/touchr1_radar.png">
+  <meta property="og:image" content="https://laiyingxin2.github.io/Projects/assets/figures/paper_main_touch_r1.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Touch-R1: Reinforcing Touch Reasoning in MLLMs">
   <meta name="twitter:description" content="A project page for Touch-R1, TouchReason-1M, and tactile-grounded GRPO.">
-  <meta name="twitter:image" content="https://laiyingxin2.github.io/Projects/assets/figures/touchr1_radar.png">
+  <meta name="twitter:image" content="https://laiyingxin2.github.io/Projects/assets/figures/paper_main_touch_r1.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -466,6 +466,13 @@
 
     .figure-card img {
       width: 100%;
+      background: #fff;
+    }
+
+    .figure-stack {
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
     }
 
     .method-flow {
@@ -771,8 +778,8 @@
     </section>
 
     <div class="quick-stats">
-      <div class="stat"><strong>1.32M</strong><span>synchronized tactile data pairs</span></div>
-      <div class="stat"><strong>4</strong><span>optical tactile sensors</span></div>
+      <div class="stat"><strong>2.82M</strong><span>aligned tactile frames</span></div>
+      <div class="stat"><strong>12.2K</strong><span>audited tactile sequences</span></div>
       <div class="stat"><strong>4,800</strong><span>held-out benchmark QA pairs</span></div>
       <div class="stat"><strong>60.1</strong><span>Touch-R1-7B average score</span></div>
     </div>
@@ -845,14 +852,24 @@
         </div>
         <div class="dataset-layout">
           <div class="dataset-list">
-            <div class="dataset-row"><b>1000+ objects</b><span>Household and everyday objects across nine material groups.</span></div>
-            <div class="dataset-row"><b>14,700 sequences</b><span>Filtered tactile-force interaction sequences.</span></div>
-            <div class="dataset-row"><b>4 sensors</b><span>GelSight Mini, Xense, Tac3D, and DM-Tac X.</span></div>
+            <div class="dataset-row"><b>1,748 groups</b><span>Held-out trial groups are separated to avoid object and contact-region leakage.</span></div>
+            <div class="dataset-row"><b>12,183 sequences</b><span>H5-readable tactile interactions with force/IMU-aligned contact traces.</span></div>
+            <div class="dataset-row"><b>230K + 100K</b><span>Cold-start SFT examples plus GRPO prompts with eight rollouts per prompt.</span></div>
             <div class="dataset-row"><b>Reasoning QA</b><span>Verified rationales grounded in tactile evidence.</span></div>
           </div>
           <figure class="figure-card">
-            <img src="assets/figures/touchreason_distribution.png" alt="TouchReason-1M distribution">
-            <figcaption class="card-caption">Dataset and task composition.</figcaption>
+            <img src="assets/figures/paper_dataset.png" alt="Overview of TouchReason-1M">
+            <figcaption class="card-caption">Main-paper overview of TouchReason-1M.</figcaption>
+          </figure>
+        </div>
+        <div class="figure-stack">
+          <figure class="figure-card">
+            <img src="assets/figures/paper_contact_feature.png" alt="Representative tactile contact features">
+            <figcaption class="card-caption">Representative tactile signals: raw deformation, displacement, shear, and depth.</figcaption>
+          </figure>
+          <figure class="figure-card">
+            <img src="assets/figures/paper_touchreason_distribution.png" alt="TouchReason-1M reasoning corpus composition">
+            <figcaption class="card-caption">Composition of the generated TouchReason-1M reasoning corpus.</figcaption>
           </figure>
         </div>
       </div>
@@ -892,6 +909,11 @@
           J_Touch-R1(theta) = J_GRPO(theta; R) + gamma G_tg(theta),
           &nbsp;&nbsp; R = 0.6 R_acc + 0.3 R_cs + 0.1 R_fmt
         </div>
+
+        <figure class="figure-card" style="margin-top:18px;">
+          <img src="assets/figures/paper_main_touch_r1.png" alt="Touch-R1 framework">
+          <figcaption class="card-caption">Main-paper framework of Touch-R1.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -905,8 +927,8 @@
 
         <div class="results-grid">
           <figure class="figure-card">
-            <img src="assets/figures/touchr1_radar.png" alt="Touch-R1 radar comparison">
-            <figcaption class="card-caption">Main comparison across property, ordinal, and consistency metrics.</figcaption>
+            <img src="assets/figures/paper_user_agent.png" alt="Qualitative Touch-R1 reasoning examples">
+            <figcaption class="card-caption">Main-paper qualitative reasoning examples.</figcaption>
           </figure>
           <div class="result-card">
             <h3 style="margin:0;font-family:'Google Sans',sans-serif;font-size:24px;">TouchReason-Bench Avg</h3>
@@ -938,15 +960,15 @@
         <div class="section-title">
           <div class="kicker">Analysis</div>
           <h2>Compact diagnostics.</h2>
-          <p class="lead">The remaining figures are kept visual and lightweight: scale behavior and reward/data ablations.</p>
+          <p class="lead">Main-paper scale behavior and reward/data ablations.</p>
         </div>
         <div class="small-gallery">
           <figure class="figure-card">
-            <img src="assets/figures/touchr1_scale.png" alt="Touch-R1 scaling behavior">
+            <img src="assets/figures/paper_touchr1_scale.png" alt="Touch-R1 scaling behavior">
             <figcaption class="card-caption">Scaling across 3B, 7B, and 14B backbones.</figcaption>
           </figure>
           <figure class="figure-card">
-            <img src="assets/figures/touchr1_ablation.png" alt="Touch-R1 ablation analysis">
+            <img src="assets/figures/paper_touchr1_ablation.png" alt="Touch-R1 ablation analysis">
             <figcaption class="card-caption">Ablations over data, generation length, and reward weights.</figcaption>
           </figure>
         </div>
