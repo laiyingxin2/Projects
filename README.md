@@ -1,6 +1,6 @@
 # Touch-R1 Project Page
 
-This repository hosts the project page for **Touch-R1**.
+This repository hosts t he project page for **Touch-R1**.
 
 ## Live Page
 
