@@ -1,6 +1,6 @@
 # Touch-R1 Project Page
 
-This repository hosts t he project page for **Touch-R1**.
+This repository hosts the project page for **Touch-R1**.
 
 ## Live Page
 
@@ -8,11 +8,11 @@ https://laiyingxin2.github.io/Projects/
 
 ## GitHub Pages
 
-The site is published from:
+The site is deployed from `docs/` by the GitHub Actions workflow in `.github/workflows/static.yml`.
 
-- Source: `Deploy from a branch`
-- Branch: `main`
-- Folder: `/docs`
+Recommended Pages setting:
+
+- Source: `GitHub Actions`
 
 The deployable static files live in `docs/`:
 
@@ -20,4 +20,4 @@ The deployable static files live in `docs/`:
 - `docs/assets/`
 - `docs/.nojekyll`
 
-After pushing changes to `main`, GitHub Pages rebuilds the site automatically. If the Pages settings are changed to `/ (root)`, move `index.html` and `assets/` back to the repository root before saving.
+After pushing changes to `main`, the workflow uploads `docs/` and publishes the site automatically.
